@@ -1,24 +1,23 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Counter from './pages/Counter';
+import QuotesComp from './pages/QuotesComp';
+import { useSelector } from 'react-redux';
+import { RootState } from './app/store';
 function App() {
+  const state = useSelector((state:RootState)=>state);
+
+// useEffect(()=>{
+//   console.log(state)
+// })
+useEffect(()=>{
+  console.log(state)
+})
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Counter></Counter>
+     <QuotesComp></QuotesComp>
     </div>
   );
 }
